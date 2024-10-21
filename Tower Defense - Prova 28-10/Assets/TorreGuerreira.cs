@@ -13,6 +13,7 @@ public class TorreGuerreira : ITorreDano
 
     public int Dano => 50; // Retorna o valor fixo de 50. Esse valor representa o dano que a torre guerreira causa ao atacar inimigos
 
+    public float Alcance => 2f; // A torre só pode atacar inimigos que estejam a uma distância de 2 ou menos
 
 
 
