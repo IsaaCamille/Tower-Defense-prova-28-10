@@ -23,7 +23,8 @@ public class BuilderTower : MonoBehaviour
         {
             Debug.Log("Clicou");
 
-
+            // Pega a posição do mouse em coordenadas do mundo
+            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         }
     }
