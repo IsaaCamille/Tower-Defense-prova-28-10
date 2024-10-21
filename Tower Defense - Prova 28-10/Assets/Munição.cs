@@ -9,6 +9,10 @@ public class Munição : MonoBehaviour
     private Transform alvo;//O alvo que a munição vai seguir
     private int dano; // O valor do dano que uma munição causará ao atingir o alvo, com base no tipo de torre que disparou a munição
 
+    public void DefinirAlvo(Transform _alvo)//Este método recebe um Transformcomo parâmetro(_alvo) e define uma variável alvo para que a munição saiba em qual direção seguir
+    {
+        alvo = _alvo;
+    }
 
 
 
