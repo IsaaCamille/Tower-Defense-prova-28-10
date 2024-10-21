@@ -45,5 +45,37 @@ public class BuilderTower : MonoBehaviour
             }
 
         }
+
     }
+
+    // Método para instanciar a torre no plot
+    void BuildTower(Transform plotTransform)
+    {
+        // Verifica se já há uma torre no plot
+        if (plotTowers.ContainsKey(plotTransform))
+        {
+            Debug.Log("Já há uma torre neste plot.");
+            return;
+        }
+
+        // Verifica se algum prefab de torre foi selecionado
+        if (selectedTurretPrefab == null)
+        {
+            Debug.LogWarning("Nenhum prefab de torre selecionado.");
+            return;
+        }
+
+        // Instancia o prefab da torre na posição do plot
+        GameObject newTower = Instantiate(selectedTurretPrefab, plotTransform.position, Quaternion.identity);
+
+        // Associa a torre ao plot para que não seja construída outra na mesma posição
+        plotTowers.Add(plotTransform, newTower);
+
+        Debug.Log("Torre construída com sucesso.");
+    }
+
+
+
+
+
 }
