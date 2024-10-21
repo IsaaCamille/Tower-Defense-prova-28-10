@@ -62,6 +62,14 @@ public class SpawnManager : MonoBehaviour
         Instantiate(prefabToSpawn, LevelManager.principal.pontoInicial.position, Quaternion.identity);
     }
 
+    private IEnumerator IniciarOnda()// espera um tempo (tempoEntreOndas), antes de começar a gerar inimigos para a nova onda. Também calcula quantos inimigos serão spawnados usando InimigosPorOnda()
+    {
+        yield return new WaitForSeconds(tempoEntreOndas);
+        spawnando = true;
+        inimigosParaSpawnar = InimigosPorOnda();
+
+    }
+
 
 
 }
