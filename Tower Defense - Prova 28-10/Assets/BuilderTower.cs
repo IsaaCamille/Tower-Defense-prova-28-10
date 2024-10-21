@@ -9,6 +9,8 @@ public class BuilderTower : MonoBehaviour
     private ITorreDano selectedTowerType; // Tipo da torre selecionado pelo botão
     private GameObject selectedTurretPrefab; // Prefab da torre selecionado pelo botão
 
+    private Dictionary<Transform, GameObject> plotTowers = new Dictionary<Transform, GameObject>(); // Referência para verificar se já há uma torre no plot
+
 
 
 
