@@ -11,6 +11,8 @@ public class TorreGuerreira : ITorreDano
         Nome = "Pesada";
     }
 
+    public int Dano => 50; // Retorna o valor fixo de 50. Esse valor representa o dano que a torre guerreira causa ao atacar inimigos
+
 
 
 
