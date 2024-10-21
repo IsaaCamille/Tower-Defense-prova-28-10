@@ -11,6 +11,7 @@ public class TorreMagica : ITorreDano
         Nome = "Mitica";
     }
 
+    public int Dano => 35; //retorna o valor fixo de 25. Esse valor representa o dano que a torre mágica causa ao atacar inimigos
 
 
 
