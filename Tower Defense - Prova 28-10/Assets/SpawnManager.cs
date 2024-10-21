@@ -18,6 +18,10 @@ public class SpawnManager : MonoBehaviour
     private int inimigosParaSpawnar; //O número de inimigos restantes que precisam ser spawnados em uma onda
     private bool spawnando = false; //verifica se tem inimigos spwnando
 
+    private void Awake() //Define a instância do SpawnManager, permitindo que outras partes do jogo o acessem
+    {
+        instance = this;
+    }
 
 
 
