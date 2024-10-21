@@ -14,6 +14,11 @@ public class Munição : MonoBehaviour
         alvo = _alvo;
     }
 
+    public void DefinirDano(int _dano)// Define o valor do dano que a munição vai causar ao atingir o inimigo 
+    {
+        dano = _dano;
+    }
+
 
 
 }
