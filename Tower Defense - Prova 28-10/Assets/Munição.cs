@@ -28,6 +28,21 @@ public class Munição : MonoBehaviour
         rigidbody2d.velocity = direcao * Velocidadetiro;//O rigidbody2d.velocity é atualizado com essa nova direção, o que movimenta o projétil fisicamente em direção ao alvo
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)// A função dele é verificar se o objeto com o qual o projétil colidiu é um inimigo e caso seja, aplicar dano
+    {
+        Debug.Log("Colidiu com: " + collision.gameObject.name);  // Verifica o objeto com o qual colidiu
+
+        IDamageble inimigo = collision.gameObject.GetComponent<IDamageble>();//Verifica se o objeto colidido implementa a interface IDamageble. Se sim, isso significa que ele é um inimigo e pode receber dano
+        if (inimigo != null)
+        {
+            print("acionou");
+            inimigo.TakeDamage(dano);//Chama o método TakeDamage do inimigo, passando o valor de dano como argumento. Isso aplica o dano ao inimigo
+        }
+
+        Destroy(gameObject); //Destrói o projétil após a colisão, removendo-o da cena
+
+    }
+
 
 
 }
