@@ -62,6 +62,19 @@ public class Turrets : MonoBehaviour
         }
     }
 
+    private void Atirar()
+    {
+        // Instancia o projétil e define seu alvo
+        GameObject municaoObj = Instantiate(balaPrefab, firePoint.position, Quaternion.identity);
+        Munição muniçãoScript = municaoObj.GetComponent<Munição>();
+
+        if (muniçãoScript != null)
+        {
+            muniçãoScript.DefinirAlvo(alvo);  // Atribui o alvo atual para a munição seguir
+            muniçãoScript.DefinirDano(tipoTorreta.Dano);  // Define o dano da munição com base na torre
+        }
+    }
+
 
 
 
