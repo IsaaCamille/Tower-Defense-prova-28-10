@@ -21,6 +21,21 @@ public class Turrets : MonoBehaviour
     public string tipoTorreAlvo; // Define o tipo de inimigo que a torre pode atacar (Arqueira, Pesada, Mágica)
     public string[] tipoInimigosPodeAtacar;
 
+    private void Start()//Inicializa a torre com base no tipo definido em tipoTorreAlvo. Dependendo do tipo da torre, ela instancia um dos três tipos de torre (TorreArqueira, TorreGuerreira, ou TorreMagica)
+    {
+        switch (tipoTorreAlvo)
+        {
+            case "Arqueira":
+                tipoTorreta = new TorreArqueira();
+                break;
+            case "Pesada":
+                tipoTorreta = new TorreGuerreira();
+                break;
+            case "Magica":
+                tipoTorreta = new TorreMagica();
+                break;
+        }
+    }
 
 
 
