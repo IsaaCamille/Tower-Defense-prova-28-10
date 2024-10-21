@@ -74,7 +74,27 @@ public class BuilderTower : MonoBehaviour
         Debug.Log("Torre construída com sucesso.");
     }
 
+    // Método chamado ao clicar nos botões de seleção de torreta
+    public void SelectTurretType(GameObject turretPrefab)
+    {
+        selectedTurretPrefab = turretPrefab; // Atualiza o prefab da torreta selecionado
+        Debug.Log("Prefab da torre selecionado: " + turretPrefab.name);
+    }
 
+    public void OnAtiradoraButtonPressed(GameObject atiradoraPrefab)
+    {
+        FindObjectOfType<BuilderTower>().SelectTurretType(atiradoraPrefab); // Seleciona o prefab da torreta Atiradora
+    }
+
+    public void OnPesadaButtonPressed(GameObject pesadaPrefab)
+    {
+        FindObjectOfType<BuilderTower>().SelectTurretType(pesadaPrefab); // Seleciona o prefab da torreta Pesada
+    }
+
+    public void OnMisticaButtonPressed(GameObject misticaPrefab)
+    {
+        FindObjectOfType<BuilderTower>().SelectTurretType(misticaPrefab); // Seleciona o prefab da torreta Mística
+    }
 
 
 
