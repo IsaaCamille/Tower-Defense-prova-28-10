@@ -29,6 +29,27 @@ public class SpawnManager : MonoBehaviour
         StartCoroutine(IniciarOnda());
     }
 
+    private void Update()
+    {
+        if (!spawnando) return;
+        tempoDesdeUltimoSpawn += Time.deltaTime;
+
+        if (tempoDesdeUltimoSpawn >= (1f / inimigosPorSegundo) && inimigosParaSpawnar > 0)
+        {
+            SpawnInimigo();
+            inimigosParaSpawnar--;
+            inimigosVivos++;
+            tempoDesdeUltimoSpawn = 0f;
+        }
+
+        if (inimigosVivos <= 0 && inimigosParaSpawnar == 0)
+        {
+            FimDaOnda();
+        }
+
+        //ele continua spawnando inimigos com base no tempo (inimigosPorSegundo). A cada spawn, decrementa inimigosParaSpawnar, incrementa inimigosVivos, e reseta o contador tempoDesdeUltimoSpawn
+    }
+
 
 
 }
