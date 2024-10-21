@@ -56,6 +56,12 @@ public class SpawnManager : MonoBehaviour
         inimigosVivos--;
     }
 
+    public void SpawnInimigo() //Instancia um prefab de inimigo aleatório na posição inicial definida pelo LevelManager
+    {
+        GameObject prefabToSpawn = prefabsInimigos[Random.Range(0, prefabsInimigos.Length)];
+        Instantiate(prefabToSpawn, LevelManager.principal.pontoInicial.position, Quaternion.identity);
+    }
+
 
 
 }
