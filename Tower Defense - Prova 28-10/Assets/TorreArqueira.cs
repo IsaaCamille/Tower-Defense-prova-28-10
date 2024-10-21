@@ -13,5 +13,7 @@ public class TorreArqueira : ITorreDano
 
     public int Dano => 25; // retorna o valor fixo de 25. Esse valor representa o dano que a torre arqueira causa ao atacar inimigos
 
+    public float Alcance => 2; // define o alcance da torre como 2. Isso significa que a torre só pode atacar inimigos que estejam a uma distância de 2 ou menos
+
 
 }
