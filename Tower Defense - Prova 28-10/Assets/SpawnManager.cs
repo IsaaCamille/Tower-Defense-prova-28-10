@@ -75,6 +75,12 @@ public class SpawnManager : MonoBehaviour
         return Mathf.RoundToInt(inimigosIniciais * Mathf.Pow(ondaAtual, fatorDeEscalaDeDificuldade));
     }
 
-
+    private void FimDaOnda()//Finaliza a onda atual, reseta o contador de spawn e inicia a próxima onda, aumentando o número da onda
+    {
+        spawnando = false;
+        tempoDesdeUltimoSpawn = 0f;
+        ondaAtual++;
+        StartCoroutine(IniciarOnda());
+    }
 
 }
