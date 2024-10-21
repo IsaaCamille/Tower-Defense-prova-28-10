@@ -19,6 +19,15 @@ public class Munição : MonoBehaviour
         dano = _dano;
     }
 
+    private void FixedUpdate()//O método FixedUpdate() é usado para atualizar a física do objeto, sendo chamado em intervalos de tempo fixos
+    {   //Este método verifica se há um alvo (alvo). Se não houver, o método retorna e não executa mais código
+        if (!alvo) return;
+
+
+        Vector2 direcao = (alvo.position - transform.position).normalized;
+        rigidbody2d.velocity = direcao * Velocidadetiro;//O rigidbody2d.velocity é atualizado com essa nova direção, o que movimenta o projétil fisicamente em direção ao alvo
+    }
+
 
 
 }
