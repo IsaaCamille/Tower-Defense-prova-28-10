@@ -16,5 +16,15 @@ public class BuilderTower : MonoBehaviour
         plotTowers = new Dictionary<Transform, GameObject>();
     }
 
+    void Update()
+    {
+        // Verifica se o botão esquerdo do mouse foi clicado
+        if (Input.GetMouseButtonDown(0))
+        {
+            Debug.Log("Clicou");
 
+
+
+        }
+    }
 }
