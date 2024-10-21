@@ -70,6 +70,11 @@ public class SpawnManager : MonoBehaviour
 
     }
 
+    private int InimigosPorOnda()//Retorna o número de inimigos que serão gerados em uma onda. O cálculo usa uma fórmula que escala com o número da onda e o fator de dificuldade
+    {
+        return Mathf.RoundToInt(inimigosIniciais * Mathf.Pow(ondaAtual, fatorDeEscalaDeDificuldade));
+    }
+
 
 
 }
