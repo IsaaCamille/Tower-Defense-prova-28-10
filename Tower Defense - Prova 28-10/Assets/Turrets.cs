@@ -37,6 +37,31 @@ public class Turrets : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        // Chama uma função para encontrar o inimigo mais próximo dentro do alcance da torre
+        EncontrarAlvo();
+
+        // Se não houver um alvo, não realiza mais ações
+        if (alvo == null)
+        {
+            return;
+        }
+
+        // Gira a torreta na direção do alvo
+        GirarEmDirecaoAlvo();
+
+        // Incrementa o tempo até o próximo disparo
+        tempoAteDisparo += Time.deltaTime;
+
+        // Quando o tempo for maior que o intervalo dos tiros, atira
+        if (tempoAteDisparo >= tps)
+        {
+            Atirar();
+            tempoAteDisparo = 0f; // Reseta o tempo até o próximo tiro
+        }
+    }
+
 
 
 
