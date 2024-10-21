@@ -81,6 +81,55 @@ public class Turrets : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, tamanhoMira);
     }
 
+    private void EncontrarAlvo()
+    {
+        // Faz um CircleCast para detectar todos os inimigos no raio de alcance
+        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, tamanhoMira, Vector2.zero, 0f, LayerMask.GetMask("Enemy"));
+
+        if (hits.Length > 0)
+        {
+            Transform alvoMaisProximo = null; // Guarda a referência do inimigo mais próximo
+            float menorDistancia = Mathf.Infinity; // Começa com uma distância infinita para comparar
+
+            // Loop por todos os alvos detectados para encontrar o mais próximo
+            foreach (RaycastHit2D hit in hits)
+            {
+                if (hit.transform != null && hit.transform.gameObject.activeInHierarchy) // Certifica que o alvo está ativo
+                {
+                    Monster monstro = hit.transform.GetComponent<Monster>();
+                    ITipoInimigo tipoInimigo = hit.transform.GetComponent<ITipoInimigo>();
+
+                    if (monstro != null && tipoInimigo != null) // Certifica que o inimigo implementa a interface ITipoInimigo
+                    {
+                        // Verifica se o inimigo é do tipo que a torre pode atacar
+                        if (PodeAtacar(tipoInimigo))
+                        {
+                            float distancia = Vector2.Distance(transform.position, hit.transform.position); // Calcula a distância até o inimigo
+
+                            // Se o alvo estiver mais próximo que o anterior, ele é selecionado
+                            if (distancia < menorDistancia)
+                            {
+                                menorDistancia = distancia;
+                                alvoMaisProximo = hit.transform; // Define esse alvo como o mais próximo
+                            }
+                        }
+                    }
+                }
+            }
+
+            // Sempre define o novo alvo mais próximo
+            if (alvoMaisProximo != null)
+            {
+                alvo = alvoMaisProximo;
+            }
+        }
+        else
+        {
+            // Se nenhum alvo for encontrado, reseta o alvo
+            alvo = null;
+        }
+    }
+
 
 
 
