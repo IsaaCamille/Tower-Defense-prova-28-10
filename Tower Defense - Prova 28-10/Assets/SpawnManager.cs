@@ -23,6 +23,12 @@ public class SpawnManager : MonoBehaviour
         instance = this;
     }
 
+    private void Start()//Inicializa o número de inimigos vivos com zero e inicia a primeira onda de inimigos chamando a Coroutine IniciarOnda()
+    {
+        inimigosVivos = 0;
+        StartCoroutine(IniciarOnda());
+    }
+
 
 
 }
