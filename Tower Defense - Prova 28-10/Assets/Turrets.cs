@@ -75,6 +75,12 @@ public class Turrets : MonoBehaviour
         }
     }
 
+    private void OnDrawGizmos()
+    {
+        // Desenha uma esfera visual no editor para representar o raio de alcance da torreta
+        Gizmos.DrawWireSphere(transform.position, tamanhoMira);
+    }
+
 
 
 
