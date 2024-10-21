@@ -26,6 +26,9 @@ public class BuilderTower : MonoBehaviour
             // Pega a posição do mouse em coordenadas do mundo
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
+            // Realiza o Raycast 2D
+            RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero);
+
         }
     }
 }
