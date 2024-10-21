@@ -12,7 +12,11 @@ public class EnemyMoviment : MonoBehaviour
     private int caminhoIndex = 0;// Índice que acompanha em qual ponto do caminho o inimigo está
     SpawnManager spawnManager;//Referência ao sistema de spawn de inimigos, usado para atualizar a contagem de inimigos vivos
 
-
+    private void Start()
+    {
+        alvo = LevelManager.principal.caminho[caminhoIndex];// Inicializa o alvo do inimigo com o primeiro ponto do caminho(caminhoIndex = 0), obtendo essa informação do LevelManager
+        spawnManager = GameObject.FindObjectOfType<SpawnManager>();//Busca uma referência para o SpawnManager, que gerencia a contagem de inimigos vivos no nível
+    }
 
 
 
