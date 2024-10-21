@@ -12,7 +12,7 @@ public class TorreMagica : ITorreDano
     }
 
     public int Dano => 35; //retorna o valor fixo de 25. Esse valor representa o dano que a torre mágica causa ao atacar inimigos
-
+    public float Alcance => 2f; // define o alcance da torre como 2. Isso significa que a torre só pode atacar inimigos que estejam a uma distância de 2 ou menos
 
 
 
