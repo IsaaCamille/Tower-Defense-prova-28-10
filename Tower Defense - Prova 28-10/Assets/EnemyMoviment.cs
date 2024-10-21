@@ -18,6 +18,24 @@ public class EnemyMoviment : MonoBehaviour
         spawnManager = GameObject.FindObjectOfType<SpawnManager>();//Busca uma referência para o SpawnManager, que gerencia a contagem de inimigos vivos no nível
     }
 
+    private void Update()
+    {
+        if (Vector2.Distance(alvo.position, transform.position) <= 0.1f)//Verifica se o inimigo chegou ao ponto atual (alvo) com base na distância. Se a distância for menor ou igual a 0.1, considera que o inimigo alcançou o ponto
+        {
+            caminhoIndex++;//Incrementa o índice (caminhoIndex) para ir ao próximo ponto.
+
+            if (caminhoIndex == LevelManager.principal.caminho.Length)//Se o índice for igual ao número total de pontos (fim do caminho), o inimigo é destruído (removido da cena), e o número de inimigos vivos no SpawnManager é decrementado
+            {
+                spawnManager.inimigosVivos--;
+                Destroy(gameObject);
+                return;
+            }
+            else
+            {
+                alvo = LevelManager.principal.caminho[caminhoIndex];//Se ainda houver pontos no caminho, o alvo é atualizado para o próximo pontos
+            }
+        }
+    }
 
 
 
