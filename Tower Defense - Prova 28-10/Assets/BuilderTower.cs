@@ -33,6 +33,12 @@ public class BuilderTower : MonoBehaviour
             {
                 Debug.Log("Raycast 2D bateu em: " + hit.collider.name);
             }
+
+            // Verifica se o raycast acerta algum objeto com a máscara de plots
+            RaycastHit2D hitWithMask = Physics2D.Raycast(mousePosition, Vector2.zero, Mathf.Infinity, plotLayerMask);
+
+
+
         }
     }
 }
