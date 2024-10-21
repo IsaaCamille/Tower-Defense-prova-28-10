@@ -37,7 +37,12 @@ public class BuilderTower : MonoBehaviour
             // Verifica se o raycast acerta algum objeto com a máscara de plots
             RaycastHit2D hitWithMask = Physics2D.Raycast(mousePosition, Vector2.zero, Mathf.Infinity, plotLayerMask);
 
-
+            if (hitWithMask.collider != null)
+            {
+                // Chama o método para construir a torre no plot clicado
+                Debug.Log("Raycast 2D bateu em: " + hitWithMask.collider.name + " que é um objeto da layerMask selecionada");
+                BuildTower(hitWithMask.transform);
+            }
 
         }
     }
