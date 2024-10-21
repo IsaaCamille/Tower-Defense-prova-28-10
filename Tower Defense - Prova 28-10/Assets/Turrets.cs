@@ -130,7 +130,16 @@ public class Turrets : MonoBehaviour
         }
     }
 
+    // Verifica se a torre pode atacar o inimigo baseado no tipo
+    private bool PodeAtacar(ITipoInimigo tipoInimigo)
+    {
+        foreach (string indexer in tipoInimigosPodeAtacar)
+        {
+            if (tipoInimigo.Nome == indexer) return true;
+        }
+        return false;
 
+    }
 
 
 
