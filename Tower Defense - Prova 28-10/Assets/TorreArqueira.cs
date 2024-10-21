@@ -11,5 +11,7 @@ public class TorreArqueira : ITorreDano
         Nome = "Atiradora";
     }
 
+    public int Dano => 25; // retorna o valor fixo de 25. Esse valor representa o dano que a torre arqueira causa ao atacar inimigos
+
 
 }
