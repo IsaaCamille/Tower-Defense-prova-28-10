@@ -51,5 +51,11 @@ public class SpawnManager : MonoBehaviour
     }
 
 
+    public void InimigoDestruido()//Método chamado quando um inimigo é destruído, diminuindo o contador de inimigos vivos
+    {
+        inimigosVivos--;
+    }
+
+
 
 }
