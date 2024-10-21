@@ -141,9 +141,21 @@ public class Turrets : MonoBehaviour
 
     }
 
+    // Função para girar a torreta na direção do alvo
+    private void GirarEmDirecaoAlvo()
+    {
+        if (alvo == null) // Se não houver alvo, não faz nada
+            return;
 
+        // Calcula a direção até o alvo
+        Vector3 direcao = alvo.position - transform.position;
+        // Calcula o ângulo necessário para a torreta se alinhar ao alvo
+        float angulo = Mathf.Atan2(direcao.y, direcao.x) * Mathf.Rad2Deg - 90f;
 
-
+        // Converte o ângulo em uma rotação e suaviza a rotação usando Slerp
+        Quaternion rotaçãoDoAlvo = Quaternion.Euler(new Vector3(0f, 0f, angulo));
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotaçãoDoAlvo, Time.deltaTime * velocidadeDeRotacao);
+    }
 
 
 }
