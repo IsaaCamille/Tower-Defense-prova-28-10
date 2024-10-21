@@ -11,7 +11,10 @@ public class BuilderTower : MonoBehaviour
 
     private Dictionary<Transform, GameObject> plotTowers = new Dictionary<Transform, GameObject>(); // Referência para verificar se já há uma torre no plot
 
-
+    private void Start()
+    {
+        plotTowers = new Dictionary<Transform, GameObject>();
+    }
 
 
 }
