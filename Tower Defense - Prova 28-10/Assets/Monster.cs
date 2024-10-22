@@ -20,4 +20,11 @@ public class Monster : MonoBehaviour, IDamageble
         }
     }
 
+    private void Morrer()//O metodo Morrer lida com a remoção do inimigo do jogo, como a destruição do objeto
+    {
+        SpawnManager.instance.InimigoDestruido();
+        Debug.Log("Inimigo morreu!");  // Mensagem para confirmar a morte
+        Destroy(gameObject);  // Destrói o inimigo
+    }
+
 }
