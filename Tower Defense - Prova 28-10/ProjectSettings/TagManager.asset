@@ -3,16 +3,17 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Plots
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Plots
   - Water
   - UI
-  - 
-  - 
+  - Enemy
+  - Bala
   - 
   - 
   - 
@@ -40,4 +41,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Inimigos
+    uniqueID: 2778638963
+    locked: 0
+  - name: Turrent
+    uniqueID: 3353914759
     locked: 0
