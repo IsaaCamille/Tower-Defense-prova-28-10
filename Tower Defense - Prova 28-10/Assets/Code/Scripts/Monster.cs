@@ -5,6 +5,8 @@ using UnityEngine;
 // Classe para os inimigos
 public class Monster : MonoBehaviour, IDamageble
 {
+    [SerializeField] private int valorMoeda = 50;
+
     public int vidaAtual = 100;  // Valor inicial da vida do monstro
 
     // Implementa o método da interface IDamageble
@@ -25,6 +27,7 @@ public class Monster : MonoBehaviour, IDamageble
     {
         SpawnManager.instance.InimigoDestruido();
         Debug.Log("Inimigo morreu!");  // Mensagem para confirmar a morte
+        LevelManager.principal.AdicionarMoeda(valorMoeda);
         Destroy(gameObject);  // Destrói o inimigo
     }
 
