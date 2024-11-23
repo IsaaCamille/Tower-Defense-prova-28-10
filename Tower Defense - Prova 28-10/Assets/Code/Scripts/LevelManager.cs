@@ -12,6 +12,7 @@ public class LevelManager : MonoBehaviour
     public Transform[] caminho;//Um array de Transform que define o caminho que os inimigos devem seguir, com cada elemento representando um waypoint
 
     public int moeda;
+    public Text moedatexto;
 
     private void Awake()
     {
@@ -22,12 +23,12 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         moeda = 0;
-
-
+       
     }
     public void AdicionarMoeda(int amount)
     {
         moeda += amount;
+        moedatexto.text = "Moeda: " + moeda;
     }
 
     public bool DiminuirMoeda(int amount)
