@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class SpawnManager : MonoBehaviour //Classe criada para gerenciar o surgimento dos inimigos
 {
     public static SpawnManager instance;
+    public ADSManager ADSManager;
 
     [SerializeField] private GameObject[] prefabsInimigos; //Um array de prefabs de inimigos que serão instanciados no jogo
     [SerializeField] private int inimigosIniciais; //Define o número inicial de inimigos por onda
@@ -79,6 +80,8 @@ public class SpawnManager : MonoBehaviour //Classe criada para gerenciar o surgi
     {
         spawnando = false;
         tempoDesdeUltimoSpawn = 0f;
+        ADSManager = FindObjectOfType<ADSManager>();
+        ADSManager.ShowAd();
         ondaAtual++;
         StartCoroutine(IniciarOnda());
     }
