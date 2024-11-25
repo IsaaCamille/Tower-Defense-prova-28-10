@@ -7,8 +7,8 @@ public class ADSManager : MonoBehaviour, IUnityAdsInitializationListener, IUnity
 {
     private string bannerPlacementId = "Banner_Android";
     private string interstitialPlacementId = "Interstitial_Android";
-
     private string nonSkkipableInterstitial = "Interstitial_Nao_Pulavel";
+    private string rewardedPlacementId = "Rewarded_Android";
 
     private bool showSkippable = true;
 
@@ -59,7 +59,12 @@ public class ADSManager : MonoBehaviour, IUnityAdsInitializationListener, IUnity
         Debug.Log("Non Skkipable initialized sussefully");
     }
 
-
+    public void ShowRewarded()
+    {
+        PauseGame();
+        Advertisement.Show(rewardedPlacementId, this);
+        Debug.Log("Rewarded initialized sussefully");
+    }
 
 
 
