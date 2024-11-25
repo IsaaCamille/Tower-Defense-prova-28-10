@@ -20,6 +20,20 @@ public class ADSManager : MonoBehaviour, IUnityAdsInitializationListener, IUnity
         Debug.Log("Banner initialized sussefully");
     }
 
+    private IEnumerator BannerCycleCoroutine()
+    {
+        while (true) // Ciclo infinito
+        {
+            Advertisement.Banner.Show(bannerPlacementId); // exibe o banner
+            Debug.Log("Banner exibido.");
+            yield return new WaitForSeconds(10f); // mantém o banner visível por 10 segundos
+
+            Advertisement.Banner.Hide(); // oculta o banner
+            Debug.Log("Banner ocultado.");
+            yield return new WaitForSeconds(5f); // mantém o banner oculto por 5 segundos
+        }
+    }
+
 
 
 
