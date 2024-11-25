@@ -72,6 +72,12 @@ public class ADSManager : MonoBehaviour, IUnityAdsInitializationListener, IUnity
         Debug.Log("Game Paused for Ad.");
     }
 
+    private void ResumeGame()
+    {
+        Time.timeScale = 1f;
+        Debug.Log("Game Resumed after Ad.");
+    }
+
 
 
 
