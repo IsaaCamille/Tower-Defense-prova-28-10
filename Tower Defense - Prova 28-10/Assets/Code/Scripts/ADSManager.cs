@@ -66,6 +66,11 @@ public class ADSManager : MonoBehaviour, IUnityAdsInitializationListener, IUnity
         Debug.Log("Rewarded initialized sussefully");
     }
 
+    private void PauseGame()
+    {
+        Time.timeScale = 0f;
+        Debug.Log("Game Paused for Ad.");
+    }
 
 
 
