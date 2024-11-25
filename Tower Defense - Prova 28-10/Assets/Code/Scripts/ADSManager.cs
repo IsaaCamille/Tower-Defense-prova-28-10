@@ -7,6 +7,10 @@ public class ADSManager : MonoBehaviour, IUnityAdsInitializationListener, IUnity
 {
     private string bannerPlacementId = "Banner_Android";
 
+    public delegate void ShowAds();
+
+    public ShowAds showAds;
+
     private void Awake()
     {
         Advertisement.Initialize("5730091", true, this);
@@ -18,6 +22,7 @@ public class ADSManager : MonoBehaviour, IUnityAdsInitializationListener, IUnity
         Advertisement.Banner.SetPosition(BannerPosition.TOP_CENTER);
         Advertisement.Banner.Show(bannerPlacementId);
         Debug.Log("Banner initialized sussefully");
+        StartCoroutine(BannerCycleCoroutine());
     }
 
     private IEnumerator BannerCycleCoroutine()
