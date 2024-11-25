@@ -66,6 +66,21 @@ public class ADSManager : MonoBehaviour, IUnityAdsInitializationListener, IUnity
         Debug.Log("Rewarded initialized sussefully");
     }
 
+    public void ShowAd()
+    {
+        if (showSkippable)
+        {
+            ShowInterstitial();
+        }
+        else
+        {
+            ShowNonSkippable();
+        }
+
+        // Alterna o tipo de anúncio para a próxima vez
+        showSkippable = !showSkippable;
+    }
+
     private void PauseGame()
     {
         Time.timeScale = 0f;
