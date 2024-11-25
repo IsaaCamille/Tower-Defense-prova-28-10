@@ -6,6 +6,9 @@ using UnityEngine.Advertisements;
 public class ADSManager : MonoBehaviour, IUnityAdsInitializationListener, IUnityAdsLoadListener, IUnityAdsShowListener
 {
     private string bannerPlacementId = "Banner_Android";
+    private string interstitialPlacementId = "Interstitial_Android";
+
+    private bool showSkippable = true;
 
     public delegate void ShowAds();
 
@@ -38,6 +41,18 @@ public class ADSManager : MonoBehaviour, IUnityAdsInitializationListener, IUnity
             yield return new WaitForSeconds(5f); // mantém o banner oculto por 5 segundos
         }
     }
+
+    public void ShowInterstitial()
+    {
+        PauseGame();
+        Advertisement.Show(interstitialPlacementId, this);
+        Debug.Log("Interstistial initialized sussefully");
+
+    }
+
+   
+
+
 
 
 
