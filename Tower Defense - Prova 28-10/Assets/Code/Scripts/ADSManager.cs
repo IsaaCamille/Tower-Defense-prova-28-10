@@ -78,6 +78,45 @@ public class ADSManager : MonoBehaviour, IUnityAdsInitializationListener, IUnity
         Debug.Log("Game Resumed after Ad.");
     }
 
+    public void OnInitializationComplete()
+    {
+        Debug.Log("Unity Ads initialized successfully.");
+        showAds += ShowRewarded;
+        LoadBanner();
+    }
+
+    public void OnUnityAdsShowComplete(string placementId, UnityAdsShowCompletionState showCompletionState)
+    {
+        ResumeGame();
+    }
+
+    public void OnInitializationFailed(UnityAdsInitializationError error, string message)
+    {
+        Debug.LogError($"Unity Ads initialization failed: {error} - {message}");
+    }
+
+    public void OnUnityAdsAdLoaded(string placementId)
+    {
+        Debug.Log($"Ad Loaded: {placementId}");
+    }
+
+    public void OnUnityAdsFailedToLoad(string placementId, UnityAdsLoadError error, string message)
+    {
+        Debug.LogError($"Failed to load ad {placementId}: {error} - {message}");
+    }
+
+    public void OnUnityAdsShowFailure(string placementId, UnityAdsShowError error, string message)
+    {
+
+    }
+
+    public void OnUnityAdsShowStart(string placementId)
+    {
+
+    }
+
+    public void OnUnityAdsShowClick(string placementId)
+    { }
 
 
 
