@@ -13,6 +13,7 @@ public class TelaGameOver : MonoBehaviour
     private LevelManager levelManager;
     private ADSManager adManager;
     private EnemyMoviment Enemy;
+
     public delegate void ShowAds();
     public static ShowAds showAds;
 
@@ -24,7 +25,7 @@ public class TelaGameOver : MonoBehaviour
 
         // Configurações dos botões
         btnAssistirAnuncio.onClick.AddListener(AssistirAnuncioRecompensado);
-        btnReiniciar.onClick.AddListener(ReiniciarJogo);
+        btnReiniciar.onClick.AddListener(OcultarGameOver);
 
         // Garante que a tela está desativada no início
         telaGameOver.SetActive(false);
@@ -46,12 +47,6 @@ public class TelaGameOver : MonoBehaviour
     private void AdicionarMoedasRecompensa()
     {
         levelManager.AdicionarMoeda(300); // Por exemplo, adiciona moedas como recompensa.
-    }
-
-    private void ReiniciarJogo()
-    {
-        Time.timeScale = 1f; // Retoma o jogo
-        telaGameOver.SetActive(false); // Oculta a tela de Game Over
     }
 
     private void OcultarGameOver()
