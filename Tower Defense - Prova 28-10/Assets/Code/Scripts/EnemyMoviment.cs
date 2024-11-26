@@ -29,6 +29,8 @@ public class EnemyMoviment : MonoBehaviour
             {
                 spawnManager.inimigosVivos--;
                 Destroy(gameObject);
+                telaGameOver = FindObjectOfType<TelaGameOver>();
+                telaGameOver.ExibirGameOver();
                 return;
             }
             else
