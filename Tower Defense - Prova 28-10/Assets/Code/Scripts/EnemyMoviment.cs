@@ -12,6 +12,7 @@ public class EnemyMoviment : MonoBehaviour
     private Transform alvo;//Representa o ponto atual para onde o inimigo está se movendo
     private int caminhoIndex = 0;// Índice que acompanha em qual ponto do caminho o inimigo está
     SpawnManager spawnManager;//Referência ao sistema de spawn de inimigos, usado para atualizar a contagem de inimigos vivos
+    public TelaGameOver telaGameOver;
 
     private void Start()
     {

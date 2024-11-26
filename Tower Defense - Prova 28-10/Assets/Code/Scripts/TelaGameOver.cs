@@ -5,14 +5,16 @@ using UnityEngine.UI;
 
 public class TelaGameOver : MonoBehaviour
 {
-    [SerializeField] private GameObject telaGameOver; // Referência à tela de Game Over.
-    [SerializeField] private Button btnAssistirAnuncio; // Botão para assistir ao anúncio recompensado.
-    [SerializeField] private Button btnReiniciar; // Botão para reiniciar o jogo.
+    [SerializeField] private GameObject telaGameOver; // referência à tela de Game Over
+    [SerializeField] private Button btnAssistirAnuncio; // botão para assistir ao anúncio recompensado
+    [SerializeField] private Button btnReiniciar; // botão para reiniciar o jogo
 
     private SpawnManager spawnManager;
     private LevelManager levelManager;
     private ADSManager adManager;
     private EnemyMoviment Enemy;
+    public delegate void ShowAds();
+    public static ShowAds showAds;
 
     private void Start()
     {
@@ -36,8 +38,7 @@ public class TelaGameOver : MonoBehaviour
 
     private void AssistirAnuncioRecompensado()
     {
-        adManager = FindObjectOfType<ADSManager>();
-        adManager.ShowRewarded(); // Usa o delegate para exibir o anúncio recompensado.
+        RecompensadoDelegate();
         AdicionarMoedasRecompensa();
         OcultarGameOver();
     }
@@ -57,5 +58,10 @@ public class TelaGameOver : MonoBehaviour
     {
         Time.timeScale = 1f; // Retoma o jogo
         telaGameOver.SetActive(false); // Desativa a tela de Game Over
+    }
+
+    public void RecompensadoDelegate()
+    {
+        showAds?.Invoke();
     }
 }

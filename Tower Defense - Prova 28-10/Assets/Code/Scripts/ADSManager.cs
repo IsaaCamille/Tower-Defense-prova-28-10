@@ -12,14 +12,17 @@ public class ADSManager : MonoBehaviour, IUnityAdsInitializationListener, IUnity
 
     private bool showSkippable = true;
 
-    public delegate void ShowAds();
-
-    public ShowAds showAds;
+   
 
     private void Awake()
     {
         Advertisement.Initialize("5730091", true, this);
 
+    }
+
+    private void Start()
+    {
+        TelaGameOver.showAds += ShowRewarded;
     }
 
     public void LoadBanner()
@@ -96,7 +99,7 @@ public class ADSManager : MonoBehaviour, IUnityAdsInitializationListener, IUnity
     public void OnInitializationComplete()
     {
         Debug.Log("Unity Ads initialized successfully.");
-        showAds += ShowRewarded;
+        TelaGameOver.showAds += ShowRewarded;
         LoadBanner();
     }
 
