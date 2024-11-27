@@ -51,6 +51,7 @@ public class ADSManager : MonoBehaviour, IUnityAdsInitializationListener, IUnity
     {
         PauseGame();
         Advertisement.Show(interstitialPlacementId, this);
+        Advertisement.Banner.Hide(); // oculta o banner
         Debug.Log("Interstistial initialized sussefully");
 
     }
