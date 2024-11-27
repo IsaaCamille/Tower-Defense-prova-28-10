@@ -19,22 +19,22 @@ public class TelaGameOver : MonoBehaviour
 
     private void Start()
     {
-        // Referências necessárias
+        // referências necessárias
         spawnManager = FindObjectOfType<SpawnManager>();
         levelManager = FindObjectOfType<LevelManager>();
 
-        // Configurações dos botões
+        // configurações dos botões
         btnAssistirAnuncio.onClick.AddListener(AssistirAnuncioRecompensado);
         btnReiniciar.onClick.AddListener(OcultarGameOver);
 
-        // Garante que a tela está desativada no início
+        // garante que a tela está desativada no início
         telaGameOver.SetActive(false);
     }
 
     public void ExibirGameOver()
     {
-        Time.timeScale = 0f; // Pausa o jogo
-        telaGameOver.SetActive(true); // Ativa a tela de Game Over
+        Time.timeScale = 0f; // pausa o jogo
+        telaGameOver.SetActive(true); // ativa a tela de Game Over
     }
 
     private void AssistirAnuncioRecompensado()
@@ -46,7 +46,7 @@ public class TelaGameOver : MonoBehaviour
 
     private void AdicionarMoedasRecompensa()
     {
-        levelManager.AdicionarMoeda(300); // Por exemplo, adiciona moedas como recompensa.
+        levelManager.AdicionarMoeda(300); // por exemplo, adiciona moedas como recompensa
     }
 
     private void OcultarGameOver()
